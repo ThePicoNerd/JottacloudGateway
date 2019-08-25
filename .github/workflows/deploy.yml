@@ -1,4 +1,4 @@
-name: Tests
+name: Deploy
 
 on: [release]
 
@@ -14,7 +14,6 @@ jobs:
     steps:
     - uses: actions/docker/cli@master
       name: Deploy
-      run: |
-        docker build . -t jottacloud
+      args: build . -t jottacloud
       env:
         CI: true
