@@ -13,14 +13,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Setup
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
+    - name: Run tests
       run: |
         npm install
-        npm run build --if-present
+        npm run build
         npm test
       env:
         CI: true
