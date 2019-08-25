@@ -1,10 +1,10 @@
 import { Issuer } from "../auth/issuer";
 import { Stream } from "stream";
 import * as path from "path";
-import Mountpoint from "./mountpoint";
 import { upload } from "./api/upload";
-import { getStreamInfo } from "../hash/stream";
-import { BucketLocation } from "./api/types";
+import { getStreamInfo } from "../stream/stream";
+import { BucketLocation, Mountpoint, ObjectMeta } from "./api/types";
+import { getMeta } from "./api/get";
 
 export default class Bucket {
   public issuer: Issuer;
@@ -27,7 +27,19 @@ export default class Bucket {
     this.issuer = issuer;
   }
 
-  async uploadObject(
+  async get(objectName: string): Promise<ObjectMeta> {
+    let token = await this.issuer.getToken();
+
+    let meta = await getMeta({
+      location: this.location,
+      name: this.encode(objectName),
+      token: token
+    });
+
+    return meta;
+  }
+
+  async upload(
     objectName: string,
     stream: Stream
   ): Promise<void> {

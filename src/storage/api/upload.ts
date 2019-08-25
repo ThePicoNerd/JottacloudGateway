@@ -1,7 +1,6 @@
 import Token from "../../auth/token";
 import request from "request-promise";
 import { Stream } from "stream";
-import Mountpoint from "../mountpoint";
 import path from "path";
 import { ObjectMeta, BucketLocation } from "./types";
 
