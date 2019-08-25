@@ -1,0 +1,29 @@
+{
+  "name": "jottacloud-gateway",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "npm run build && npm run start",
+    "start": "node .",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cheerio": "^0.22.13",
+    "@types/dotenv": "^6.1.1",
+    "@types/jsonwebtoken": "^8.3.3",
+    "@types/request-promise": "^4.1.44",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}
