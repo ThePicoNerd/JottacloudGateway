@@ -1,0 +1,20 @@
+name: Tests
+
+on: [release]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8, 10, 12]
+
+    steps:
+    - uses: actions/docker/cli@master
+      name: Deploy
+      run: |
+        docker build . -t jottacloud
+      env:
+        CI: true
